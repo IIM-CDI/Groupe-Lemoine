@@ -1,0 +1,21 @@
+{
+  "name": "Groupe6-Lemoine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm -r --parallel run dev",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write \"server/**/*.{js,ts,tsx,json,md}\" \"client/**/*.{js,ts,tsx,json,md}\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.15.0",
+  "devDependencies": {
+    "prettier": "^3.8.1"
+  },
+  "dependencies": {
+    "ngrok": "^5.0.0-beta.2"
+  }
+}
