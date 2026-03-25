@@ -1,14 +1,14 @@
-import { mergeConfig, type UserConfig } from 'vite';
+import { mergeConfig, type UserConfig } from "vite";
 
 export default (config: UserConfig) => {
   return mergeConfig(config, {
     resolve: {
       alias: {
-        '@': '/src',
+        "@": "/src",
       },
     },
     server: {
-      allowedHosts: ['unmeaningly-unleveled-rashida.ngrok-free.dev'],
+      allowedHosts: ["unmeaningly-unleveled-rashida.ngrok-free.dev"],
     },
   });
 };
