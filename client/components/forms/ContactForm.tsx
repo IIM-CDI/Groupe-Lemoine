@@ -66,7 +66,7 @@ export default function ContactForm() {
             onChange={handleChange}
             placeholder={content.nom_placeholder}
             required
-            className="w-full border-2 border-[var(--primary)] rounded-3xl p-3 focus:outline-none focus:ring-2 focus:ring-[var(--secondary)] focus:border-[var(--secondary)]"
+            className="input-field"
           />
         </div>
 
@@ -82,7 +82,7 @@ export default function ContactForm() {
             onChange={handleChange}
             placeholder={content.email_placeholder}
             required
-            className="w-full border-2 border-[var(--primary)] rounded-3xl p-3 focus:outline-none focus:ring-2 focus:ring-[var(--secondary)] focus:border-[var(--secondary)]"
+            className="input-field"
           />
         </div>
 
@@ -96,7 +96,7 @@ export default function ContactForm() {
             value={form.sujet}
             onChange={handleChange}
             placeholder={content.sujet_placeholder}
-            className="w-full border-2 border-[var(--primary)] rounded-3xl p-3 focus:outline-none focus:ring-2 focus:ring-[var(--secondary)] focus:border-[var(--secondary)]"
+            className="input-field"
           />
         </div>
 
@@ -112,7 +112,7 @@ export default function ContactForm() {
             placeholder={content.message_placeholder}
             rows={5}
             required
-            className="w-full border-2 border-[var(--primary)] rounded-3xl p-3 focus:outline-none focus:ring-2 focus:ring-[var(--secondary)] focus:border-[var(--secondary)]"
+            className="input-field"
           />
         </div>
 

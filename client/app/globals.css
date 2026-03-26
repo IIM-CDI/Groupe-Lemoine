@@ -28,3 +28,9 @@ body {
   /* color: var(--foreground); */
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer components{
+  .input-field{
+   @apply w-full border-2 border-[var(--primary)] rounded-3xl p-3 focus:outline-none focus:ring-1 focus:ring-[var(--secondary)] focus:border-[var(--secondary)]
+  }
+}

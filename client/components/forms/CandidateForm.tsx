@@ -102,7 +102,7 @@ export default function CandidateForm() {
               onChange={handleChange}
               placeholder={content.nom_placeholder}
               required
-              className="w-full border-2 border-[var(--primary)] rounded-3xl p-3 focus:outline-none focus:ring-1 focus:ring-[var(--secondary)] focus:border-[var(--secondary)]"
+              className="input-field"
             />
           </div>
           <div className="flex-1">
@@ -117,7 +117,7 @@ export default function CandidateForm() {
               onChange={handleChange}
               placeholder={content.prenom_placeholder}
               required
-              className="w-full border-2 border-[var(--primary)] rounded-3xl p-3 focus:outline-none focus:ring-1 focus:ring-[var(--secondary)] focus:border-[var(--secondary)]"
+              className="input-field"
             />
           </div>
         </div>
@@ -134,7 +134,7 @@ export default function CandidateForm() {
             onChange={handleChange}
             placeholder={content.email_placeholder}
             required
-            className="w-full border-2 border-(--primary) rounded-3xl p-3 focus:outline-none focus:ring-1 focus:ring-[var(--secondary)] focus:border-[var(--secondary)]"
+            className="input-field"
           />
         </div>
 
@@ -151,7 +151,7 @@ export default function CandidateForm() {
             value={form.telephone}
             onChange={setValue}
             placeholder={content.telephone_placeholder}
-            className="w-full border-2 border-[var(--primary)] rounded-3xl p-3 focus:outline-none focus:ring-1 focus:ring-[var(--secondary)] focus:border-[var(--secondary)]"
+            className="input-field"
           />
         </div>
 
@@ -166,7 +166,7 @@ export default function CandidateForm() {
             placeholder={content.message_placeholder}
             rows={5}
             required
-            className="w-full border-2 border-[var(--primary)] rounded-3xl p-3 focus:outline-none focus:ring-1 focus:ring-[var(--secondary)] focus:border-[var(--secondary)]"
+            className="input-field"
           />
         </div>
 
