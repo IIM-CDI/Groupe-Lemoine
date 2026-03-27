@@ -4,10 +4,19 @@ export function timeAgo(dateString: string): string {
     const diff = Math.floor((now.getTime() - date.getTime()) / 1000);
   
     if (diff < 60) return "à l'instant";
-    if (diff < 3600) return `il y a ${Math.floor(diff / 60)} minutes`;
-    if (diff < 86400) return `il y a ${Math.floor(diff / 3600)} heures`;
-    if (diff < 2592000) return `il y a ${Math.floor(diff / 86400)} jours`;
-    if (diff < 31536000) return `il y a ${Math.floor(diff / 2592000)} mois`;
+
+    const minutes = Math.floor(diff / 60);
+    if (diff < 3600) return `il y a ${minutes} minute${minutes > 1 ? 's' : ''}`;
   
-    return `il y a ${Math.floor(diff / 31536000)} ans`;
+    const hours = Math.floor(diff / 3600);
+    if (diff < 86400) return `il y a ${hours} heure${hours > 1 ? 's' : ''}`;
+  
+    const days = Math.floor(diff / 86400);
+    if (diff < 2592000) return `il y a ${days} jour${days > 1 ? 's' : ''}`;
+  
+    const months = Math.floor(diff / 2592000);
+    if (diff < 31536000) return `il y a ${months} mois`;
+  
+    const years = Math.floor(diff / 31536000);
+    return `il y a ${years} an${years > 1 ? 's' : ''}`;
 }
