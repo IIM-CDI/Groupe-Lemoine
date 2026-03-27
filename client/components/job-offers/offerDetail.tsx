@@ -1,3 +1,5 @@
+import { timeAgo } from '@/utils/timeAgo';
+
 type Job = {
     id: number;
     title: string;
@@ -16,7 +18,7 @@ export default function OfferDetail({ job }: OfferDetailProps) {
   return (
     <div className="p-6 bg-neutral-100 text-black flex flex-col gap-4 max-w-full">
       <h2 className="text-3xl font-bold">{job.title}</h2>
-      <p className="text-lg text-black">{job.description}</p>
+      <p className="text-lg text-black whitespace-pre-wrap">{job.description}</p>
 
       <div className="flex gap-4 text-black mt-4">
         <p><strong>Lieu :</strong> {job.location}</p>
@@ -25,7 +27,7 @@ export default function OfferDetail({ job }: OfferDetailProps) {
       </div>
 
       <p className="mt-2 text-gray-500">
-        {new Date(job.createdAt).toLocaleDateString()}
+        {timeAgo(job.createdAt)}
       </p>
     </div>
   );
