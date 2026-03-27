@@ -1,14 +1,5 @@
 import { timeAgo } from '@/utils/timeAgo';
-
-type Job = {
-    id: number;
-    title: string;
-    description: string;
-    location: string;
-    type: string;
-    experience: string;
-    createdAt: string;
-};
+import { Job } from '@/types/offer';
 
 interface OfferDetailProps {
   job: Job;

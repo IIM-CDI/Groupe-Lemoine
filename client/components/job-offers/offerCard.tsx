@@ -5,15 +5,16 @@ export default function OfferCard({title, description, location, date, onClick}:
     return (
         <div onClick={onClick} className="flex flex-col gap-12 text-black border border-neutral-400 max-w-7xl p-6 justify-center bg-neutral-100 font-sans hover:cursor-pointer hover:bg-neutral-200">
         <div className="flex gap-4 flex-1 justify-between">
-          <div className="flex flex-col gap-6">
-            <h2 className="text-2xl font-bold">{title}</h2>
-            <p className="text-lg line-clamp-3 overflow-hidden ">{description}</p>
+          <div className="flex flex-2/3 flex-col gap-6">
+            <h2 className="text-xl font-bold">{title}</h2>
+            <p className="text-md line-clamp-4 overflow-hidden ">{description}</p>
           </div>
       
-          <p className="text-md">{timeAgo(date)}</p>
+          <p className="text-sm flex justify-end flex-1/3 text-neutral-500">{location}</p>
         </div>
         <div className="flex flex-col flex-1 items-end">
-          <p className="text-lg">{location}</p>
+         
+          <p className="text-sm text-neutral-500">{timeAgo(date)}</p>
         </div>
       </div>
     )

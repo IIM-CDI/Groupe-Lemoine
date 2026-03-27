@@ -3,18 +3,10 @@
 import { useEffect, useState } from "react";
 import OfferCard from "@/components/job-offers/offerCard";
 import OfferDetail from "@/components/job-offers/offerDetail";
+import { Job } from '@/types/offer';
 import { fetchStrapi } from "@/lib/strapi";
 
 export default function Offers() {
-  type Job = {
-    id: number;
-    title: string;
-    description: string;
-    location: string;
-    type: string;
-    experience: string;
-    createdAt: string;
-  };
   const [jobs, setJobs] = useState<Job[]>([]);
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   
