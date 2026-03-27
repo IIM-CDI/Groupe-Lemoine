@@ -5,7 +5,7 @@ type Job = {
     location: string;
     type: string;
     experience: string;
-    createdAt: Date;
+    createdAt: string;
 };
 
 interface OfferDetailProps {

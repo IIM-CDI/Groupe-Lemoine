@@ -13,7 +13,7 @@ export default function Offers() {
     location: string;
     type: string;
     experience: string;
-    createdAt: Date;
+    createdAt: string;
   };
   const [jobs, setJobs] = useState<Job[]>([]);
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
@@ -49,12 +49,12 @@ export default function Offers() {
             title={job.title}
             description={job.description}
             location={job.location}
-            date={new Date(job.createdAt)}
+            date={job.createdAt}
             onClick={() => setSelectedJob(job)}
           />
         ))}
         </div>
-        <div className="bg-neutral-100 flex-1 border border-neutral-400">
+        <div className="bg-neutral-100 flex-1 border border-neutral-400 overflow-y-scroll">
         {selectedJob && <OfferDetail job={selectedJob} />}
         </div>
       </div>
