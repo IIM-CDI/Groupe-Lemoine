@@ -1,15 +1,17 @@
-export default function OfferCard({title, description, location, type, experience}: {title: string, description: string, location: string, type:string, experience:string}) {
+export default function OfferCard({title, description, location, date, onClick}: {title: string, description: string, location: string, date: Date, onClick: () => void}) {
     return (
-        <div className="flex gap-6 border border-neutral-400 max-w-5xl p-6 justify-center bg-zinc-50 font-sans dark:bg-black hover:cursor-pointer hover:bg-neutral-900">
-            <div className="flex flex-col gap-4 flex-1">
+        <div onClick={onClick} className="flex flex-col gap-12 text-black border border-neutral-400 max-w-7xl p-6 justify-center bg-neutral-100 font-sans hover:cursor-pointer hover:bg-neutral-200">
+        <div className="flex gap-4 flex-1 justify-between">
+          <div className="flex flex-col gap-6">
             <h2 className="text-2xl font-bold">{title}</h2>
-            <p className="text-lg">{description}</p>
-            </div>
-            <div className="flex flex-col flex-1 items-end">
-            <p className="text-lg">{location}</p>
-            <p className="text-lg">{type}</p>
-            <p className="text-lg">{experience}</p>
-            </div>
+            <p className="text-lg line-clamp-3 overflow-hidden">{description}</p>
+          </div>
+      
+          <p className="text-md">{date.toLocaleDateString()}</p>
         </div>
+        <div className="flex flex-col flex-1 items-end">
+          <p className="text-lg">{location}</p>
+        </div>
+      </div>
     )
 }
