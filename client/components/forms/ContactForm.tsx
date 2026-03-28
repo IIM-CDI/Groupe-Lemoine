@@ -42,8 +42,8 @@ export default function ContactForm() {
   if (!content) return <p>Loading...</p>;
 
   return (
-    <div className="max-w-lg mx-auto p-6 shadow-md rounded-3xl">
-      <h2 className="text-2xl font-bold mb-2 text-black">{content.title}</h2>
+    <div className="max-w-2xl mx-auto p-10 m-10 ">
+      <h2 className="text-3xl font-bold mb-2 text-(--secondary)">{content.title}</h2>
       <p className="text-gray-400 text-lg mb-6">{content.description}</p>
 
       {status === 'success' && (
