@@ -1,4 +1,6 @@
+
 const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
+const strapiServerUrl = process.env.STRAPI_URL;
 
 export async function fetchStrapi(path: string, options: RequestInit = {}) {
   const res = await fetch(`${strapiUrl}${path}`, {
