@@ -1,7 +1,7 @@
 'use client';
 
-import Header from '@/components/layout/Header';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 
 export default function Home() {
@@ -27,7 +27,6 @@ export default function Home() {
         <section id="home" className="relative w-full h-screen overflow-hidden">
           {/* Header OVERLAY - Z-50 pour rester visible */}
           <div className="absolute top-0 left-0 right-0 z-50">
-            <Header />
           </div>
 
           {/* Vidéo de fond - Z-0 pour rester en arrière */}
@@ -70,7 +69,9 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Left: Image */}
               <div className="animate-fade-in-left">
-                <img
+                <Image
+                  width={30}
+                  height={30}
                   src="/images/about-image.jpg"
                   alt="Groupe Lemoine - Usine"
                   className="w-full h-96 object-cover rounded-2xl shadow-lg"
@@ -83,13 +84,13 @@ export default function Home() {
                   Plus de 45 ans de savoir-faire à la française
                 </h2>
                 <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                  Fondé en 1978 par Philippe et Jeanne Lemoine, le Groupe Lemoine a développé un savoir-faire unique dans la fabrication de produits soin et d'hygiène à base de coton.
+                  Fondé en 1978 par Philippe et Jeanne Lemoine, le Groupe Lemoine a développé un savoir-faire unique dans la fabrication de produits soin et d&apos;hygiène à base de coton.
                 </p>
                 <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                  En quelques années, la petite entreprise familiale est devenue leader sur son marché en Europe, et dans le monde, avec plus de 300 clients à l'international et 10 usines sur les 5 continents.
+                  En quelques années, la petite entreprise familiale est devenue leader sur son marché en Europe, et dans le monde, avec plus de 300 clients à l&apos;international et 10 usines sur les 5 continents.
                 </p>
                 <p className="text-gray-700 text-lg leading-relaxed mb-8">
-                  Une excellence reconnue, qui repose non seulement sur sa capacité d'innovation mais aussi sur son engagement fort en matière de développement durable.
+                  Une excellence reconnue, qui repose non seulement sur sa capacité d&apos;innovation mais aussi sur son engagement fort en matière de développement durable.
                 </p>
 
                 <Link
@@ -111,7 +112,9 @@ export default function Home() {
               <div className="relative">
                 {/* Image */}
                 <div className="relative w-full h-80 overflow-hidden rounded-2xl bg-gray-200">
-                  <img
+                  <Image
+                    width={100}
+                    height={100}
                     src={sliderImages[currentSlide]}
                     alt={`Production ${currentSlide + 1}`}
                     className="w-full h-full object-cover transition-opacity duration-300"
@@ -197,7 +200,7 @@ export default function Home() {
                   Groupe Lemoine
                 </h3>
                 <p className="text-blue-100 text-sm">
-                  Excellence dans l'industrie textile depuis 1978
+                  Excellence dans l&apos;industrie textile depuis 1978
                 </p>
               </div>
 
@@ -208,7 +211,7 @@ export default function Home() {
                   <li><Link href="#" className="hover:text-white transition">FAQ</Link></li>
                   <li><Link href="#" className="hover:text-white transition">Contacts</Link></li>
                   <li><Link href="#" className="hover:text-white transition">Donnez-nous votre avis</Link></li>
-                  <li><Link href="#" className="hover:text-white transition">Offres d'emploi</Link></li>
+                  <li><Link href="#" className="hover:text-white transition">Offres d&apos;emploi</Link></li>
                 </ul>
               </div>
 

@@ -1,32 +1,35 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-        <header className="absolute top-0 left-0 right-0 z-50 bg-gradient-to-b from-black to-transparent py-4">
+        <header className="absolute top-0 left-0 right-0 z-50 bg-linear-to-b from-black to-transparent py-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo Left */}
-          <Link href="/" className="flex items-center flex-shrink-0">
-            <img
+          <Link href="/" className="flex items-center shrink-0">
+            <Image
               src="/images/logo-vertical-lemoine.png"
               alt="Lemoine"
               className="h-16 object-contain"
+              width={20}
+              height={20}
             />
           </Link>
 
           {/* Nav Center - Desktop */}
-          <nav className="hidden md:flex items-center bg-gradient-to-r from-blue-600 to-blue-500 rounded-full px-8 py-3 gap-6">
+          <nav className="hidden md:flex items-center bg-linear-to-r from-blue-600 to-blue-500 rounded-full px-8 py-3 gap-6">
             <Link 
               href="#" 
               className="bg-red-600 text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-red-700 transition"
             >
               Groupe Lemoine
             </Link>
-            <Link href="#" className="text-white text-sm hover:text-gray-100">Customer's partner</Link>
+            <Link href="#" className="text-white text-sm hover:text-gray-100">Customer&apos;s partner</Link>
             <Link href="#" className="text-white text-sm hover:text-gray-100">Dispositifs Sanitaires</Link>
             <Link href="#" className="text-white text-sm hover:text-gray-100">Peaudouce</Link>
             <Link href="#" className="text-white text-sm hover:text-gray-100">Carrières</Link>
@@ -50,7 +53,7 @@ export default function Header() {
             <Link href="#" className="block bg-red-600 text-white px-4 py-2 rounded-full text-sm font-bold text-center">
               Groupe Lemoine
             </Link>
-            <Link href="#" className="block text-white text-sm py-2 px-4 hover:bg-white hover:bg-opacity-10 rounded">Customer's partner</Link>
+            <Link href="#" className="block text-white text-sm py-2 px-4 hover:bg-white hover:bg-opacity-10 rounded">Customer&apos;s partner</Link>
             <Link href="#" className="block text-white text-sm py-2 px-4 hover:bg-white hover:bg-opacity-10 rounded">Dispositifs Sanitaires</Link>
             <Link href="#" className="block text-white text-sm py-2 px-4 hover:bg-white hover:bg-opacity-10 rounded">Peaudouce</Link>
             <Link href="#" className="block text-white text-sm py-2 px-4 hover:bg-white hover:bg-opacity-10 rounded">Carrières</Link>
