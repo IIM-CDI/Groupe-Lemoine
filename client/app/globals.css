@@ -1,55 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #00579E;
+  --secondary:#96031A;
 
-/* Base styles */
-@layer base {
-  html {
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
 
-  body {
-    font-family: 'Open Sans', sans-serif;
-    background-color: #ffffff;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-  }
-
-  h1 {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
-
-  h2 {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
-
-  h4 {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-
-  p {
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-
-  a {
-    transition: all 0.3s ease;
-  }
 }
 
 /* Scrollbar styling */
@@ -61,29 +18,14 @@
   background: #f9fafb;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #00579e;
-  border-radius: 9999px;
-  transition: background 0.3s ease;
+body {
+  background: var(--background);
+  /* color: var(--foreground); */
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #005daa;
-}
-
-/* Selection styling */
-::selection {
-  background-color: #00579e;
-  color: white;
-}
-
-::-moz-selection {
-  background-color: #00579e;
-  color: white;
-}
-
-/* Focus styles for accessibility */
-:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
+@layer components{
+  .input-field{
+   @apply w-full border-2 border-[var(--primary)] rounded-3xl p-3 focus:outline-none focus:ring-1 focus:ring-[var(--secondary)] focus:border-[var(--secondary)]
+  }
 }
