@@ -831,6 +831,43 @@ export interface ApiJobOfferJobOffer extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiProductsPageProductsPage extends Struct.SingleTypeSchema {
+  collectionName: 'products_pages';
+  info: {
+    displayName: 'products-page';
+    pluralName: 'products-pages';
+    singularName: 'products-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    description_1: Schema.Attribute.Text;
+    description_2: Schema.Attribute.Text;
+    description_3: Schema.Attribute.Text;
+    description_4: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::products-page.products-page'
+    > &
+      Schema.Attribute.Private;
+    product_type_1: Schema.Attribute.String;
+    product_type_2: Schema.Attribute.String;
+    product_type_3: Schema.Attribute.String;
+    product_type_4: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1347,6 +1384,7 @@ declare module '@strapi/strapi' {
       'api::faq.faq': ApiFaqFaq;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::job-offer.job-offer': ApiJobOfferJobOffer;
+      'api::products-page.products-page': ApiProductsPageProductsPage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
