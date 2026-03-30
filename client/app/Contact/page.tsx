@@ -10,8 +10,11 @@ export default function Contact() {
   const [openId, setOpenId] = useState<number | null>(null);
 
   useEffect(() => {
-    fetchStrapi('/api/faqs').then(setData);
-  }, []);
+  fetchStrapi('/api/faqs').then((res) => {
+    console.log(res)
+    setData(Array.isArray(res) ? res : res.data ?? [])
+  });
+}, []);
 
   const toggle = (id: number) => {
     setOpenId(openId === id ? null : id);
@@ -21,13 +24,13 @@ export default function Contact() {
     <div className="">
       <div className=" h-screen py-40 justify-self-center-safe">
         <h1 className="text-3xl font-semibold text-(--secondary)">FAQ</h1>
-        {data.map((item: faq, index) => (
+        {data?.map((item: faq) => (
           <div
             key={item.id}
             className="border-b-2 border-(--primary) last:border-b-0 overflow-hidden py-2 max-w-4xl "
           >
             <div className="flex justify-between gap-8 items-start cursor-pointer text-xl py-4">
-              <h2 className='font-semibold'>{item.question}</h2>
+              <h2 className="font-semibold">{item.question}</h2>
               <span
                 onClick={() => toggle(item.id)}
                 className={`transition-transform duration-300 text-4xl text-(--secondary) ${openId === item.id ? 'rotate-45' : ''}`}
@@ -43,7 +46,7 @@ export default function Contact() {
           </div>
         ))}
       </div>
-        <ContactForm />
+      <ContactForm />
     </div>
   );
 }

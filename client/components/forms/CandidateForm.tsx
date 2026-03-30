@@ -27,9 +27,12 @@ export default function CandidateForm() {
     motivation: null,
     message: '',
   });
+
   useEffect(() => {
-    fetchStrapi('/api/candidate-form').then(setContent);
-  }, []);
+  fetchStrapi('/api/candidate-form').then((res) => {
+    setContent(res.data)  
+  });
+}, []);
 
   const [value, setValue] = useState();
 
