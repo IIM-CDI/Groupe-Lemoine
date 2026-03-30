@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-const strapiUrl = process.env.STRAPI_URL?.replace(/\/$/, '');
+const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL?.replace(/\/$/, '');
 
 export async function GET() {
   try {
