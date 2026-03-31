@@ -846,20 +846,13 @@ export interface ApiProductsPageProductsPage extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
-    description_1: Schema.Attribute.Text;
-    description_2: Schema.Attribute.Text;
-    description_3: Schema.Attribute.Text;
-    description_4: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::products-page.products-page'
     > &
       Schema.Attribute.Private;
-    product_type_1: Schema.Attribute.String;
-    product_type_2: Schema.Attribute.String;
-    product_type_3: Schema.Attribute.String;
-    product_type_4: Schema.Attribute.String;
+    Product: Schema.Attribute.Component<'products.product-group', true>;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;

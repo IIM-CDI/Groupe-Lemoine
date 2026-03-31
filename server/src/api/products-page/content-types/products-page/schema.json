@@ -18,29 +18,10 @@
     "description": {
       "type": "text"
     },
-    "product_type_1": {
-      "type": "string"
-    },
-    "product_type_2": {
-      "type": "string"
-    },
-    "product_type_3": {
-      "type": "string"
-    },
-    "product_type_4": {
-      "type": "string"
-    },
-    "description_1": {
-      "type": "text"
-    },
-    "description_2": {
-      "type": "text"
-    },
-    "description_3": {
-      "type": "text"
-    },
-    "description_4": {
-      "type": "text"
+    "Product": {
+      "type": "component",
+      "component": "products.product-group",
+      "repeatable": true
     }
   }
 }
