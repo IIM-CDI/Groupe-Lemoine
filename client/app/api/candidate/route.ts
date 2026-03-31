@@ -3,6 +3,8 @@ import { NextResponse } from 'next/server';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+const DEV_FROM_EMAIL = 'sandbox@resend.dev';
+
 export async function POST(req: Request) {
   try {
     const formData = await req.formData();
@@ -12,6 +14,7 @@ export async function POST(req: Request) {
     const email = formData.get('email') as string;
     const telephone = formData.get('telephone') as string;
     const message = formData.get('message') as string;
+    const jobTitle = formData.get("jobTitle") as string;
     const cv = formData.get('cv') as File | null;
     const motivation = formData.get('motivation') as File | null;
 
@@ -33,10 +36,13 @@ export async function POST(req: Request) {
       });
     }
 
+    const resendTo = process.env.RESEND_TO_EMAIL ?? 'maxymmelnychuk100@gmail.com';
+    const resendFrom = DEV_FROM_EMAIL;
+
     const { data, error } = await resend.emails.send({
-      from: 'onboarding@resend.dev',
-      to: 'claire.lentete@outlook.com',
-      subject: `Nouvelle candidature de ${prenom} ${nom}`,
+      from: resendFrom,
+      to: resendTo,
+      subject: `Candidature - ${jobTitle || "Offre inconnue"}`,
       html: `
         <h2>Détails</h2>
         <p><strong>Nom:</strong> ${prenom} ${nom}</p>
@@ -48,7 +54,14 @@ export async function POST(req: Request) {
     });
 
     if (error) {
-      return NextResponse.json({ success: false, error }, { status: 400 });
+      const errorMessage =
+        typeof error === 'string'
+          ? error
+          : (error as { message?: string }).message ?? 'Resend error';
+      return NextResponse.json(
+        { success: false, error: errorMessage },
+        { status: 400 },
+      );
     }
 
     return NextResponse.json({ success: true, data });
