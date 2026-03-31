@@ -34,14 +34,13 @@ export default function Home() {
             autoPlay
             muted
             loop
-            className="absolute inset-0 w-full h-full object-cover z-0"
+            className="absolute inset-0 w-full h-full object-cover z-0 "
           >
             <source src="/videos/hero-video.mp4" type="video/mp4" />
             Votre navigateur ne supporte pas les vidéos HTML5
           </video>
 
-          {/* Overlay noir semi-transparent - Z-10 au-dessus de la vidéo */}
-          <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
+     
 
          
 
@@ -69,36 +68,36 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Left: Image */}
               <div className="animate-fade-in-left">
-                <Image
-                  width={30}
-                  height={30}
-                  src="/images/about-image.jpg"
-                  alt="Groupe Lemoine - Usine"
-                  className="w-full h-96 object-cover rounded-2xl shadow-lg"
-                />
+              <img
+  src="/images/about-image.jpg"
+  alt="Groupe Lemoine - Usine"
+  className="w-full h-96 object-cover rounded-2xl shadow-lg"
+/>
               </div>
 
               {/* Right: Text */}
               <div className="animate-fade-in-right">
-                <h2 className="font-display text-5xl font-bold text-blue-600 mb-6">
+                <h2 className="font-display text-5xl font-bold text-dark-600 mb-6">
                   Plus de 45 ans de savoir-faire à la française
                 </h2>
                 <p className="text-gray-700 text-lg leading-relaxed mb-6">
                   Fondé en 1978 par Philippe et Jeanne Lemoine, le Groupe Lemoine a développé un savoir-faire unique dans la fabrication de produits soin et d&apos;hygiène à base de coton.
                 </p>
                 <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                  En quelques années, la petite entreprise familiale est devenue leader sur son marché en Europe, et dans le monde, avec plus de 300 clients à l&apos;international et 10 usines sur les 5 continents.
+                  En quelques années, la petite entreprise familiale est devenue 
                 </p>
+                  <div className="flex flex-col gap-3 items-start font-montserrat">
+                  <h3 className="bg-[#CF102D] text-white px-5 py-3 rounded-xl shadow-md w-fit">
+                    LEADER SUR SON MARCHÉ EN EUROPE
+                  </h3>
+                  <h3 className="bg-[#CF102D] text-white px-5 py-3 rounded-xl shadow-md w-fit">
+                    N°2 DANS LE MONDE
+                  </h3>
+                </div>
                 <p className="text-gray-700 text-lg leading-relaxed mb-8">
-                  Une excellence reconnue, qui repose non seulement sur sa capacité d&apos;innovation mais aussi sur son engagement fort en matière de développement durable.
+                  Une expertise reconnue, qui repose non seulement sur sa capacité d&apos;innovation mais aussi sur son engagement fort en matière de développement durable.
                 </p>
 
-                <Link
-                  href="#"
-                  className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-display font-bold bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300"
-                >
-                  En savoir plus
-                </Link>
               </div>
             </div>
           </div>
@@ -112,13 +111,12 @@ export default function Home() {
               <div className="relative">
                 {/* Image */}
                 <div className="relative w-full h-80 overflow-hidden rounded-2xl bg-gray-200">
-                  <Image
-                    width={100}
-                    height={100}
-                    src={sliderImages[currentSlide]}
-                    alt={`Production ${currentSlide + 1}`}
-                    className="w-full h-full object-cover transition-opacity duration-300"
-                  />
+                 <img
+                  src={sliderImages[currentSlide]}
+                 alt={`Production ${currentSlide + 1}`}
+                className="w-full h-full object-cover transition-opacity duration-300"
+                loading="lazy"
+                />
                 </div>
 
                 {/* Navigation arrows */}
