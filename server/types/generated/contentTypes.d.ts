@@ -793,7 +793,7 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
 export interface ApiJobOfferJobOffer extends Struct.CollectionTypeSchema {
   collectionName: 'job_offers';
   info: {
-    displayName: 'Job offer';
+    displayName: 'job-offer';
     pluralName: 'job-offers';
     singularName: 'job-offer';
   };
@@ -804,16 +804,98 @@ export interface ApiJobOfferJobOffer extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text & Schema.Attribute.Required;
-    experience: Schema.Attribute.String & Schema.Attribute.Required;
-    jobType: Schema.Attribute.String & Schema.Attribute.Required;
+    description: Schema.Attribute.Text;
+    experience: Schema.Attribute.Enumeration<
+      [
+        'De 0 \u00E0 2 ans',
+        'De 3 \u00E0 5 ans',
+        'De 6 \u00E0 10 ans',
+        'Plus de 10 ans',
+      ]
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::job-offer.job-offer'
     > &
       Schema.Attribute.Private;
-    location: Schema.Attribute.String & Schema.Attribute.Required;
+    location: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<
+      ['CDI', 'CDD', 'Stage', 'Alternance', 'Freelance', 'Autre']
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProductionSiteProductionSite
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'production_sites';
+  info: {
+    displayName: 'production-site';
+    pluralName: 'production-sites';
+    singularName: 'production-site';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::production-site.production-site'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProductsPageProductsPage extends Struct.SingleTypeSchema {
+  collectionName: 'products_pages';
+  info: {
+    displayName: 'products-page';
+    pluralName: 'products-pages';
+    singularName: 'products-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Category: Schema.Attribute.Component<'products.product-group', true>;
+    certification: Schema.Attribute.String;
+    Certifications: Schema.Attribute.Component<
+      'certifications.certifications',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    douceur: Schema.Attribute.String;
+    douceur_description: Schema.Attribute.Text;
+    epaisseur: Schema.Attribute.String;
+    epaisseur_description: Schema.Attribute.Text;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::products-page.products-page'
+    > &
+      Schema.Attribute.Private;
+    Partenaires: Schema.Attribute.Component<'partenaires.partenaires', true>;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -1338,6 +1420,8 @@ declare module '@strapi/strapi' {
       'api::faq.faq': ApiFaqFaq;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::job-offer.job-offer': ApiJobOfferJobOffer;
+      'api::production-site.production-site': ApiProductionSiteProductionSite;
+      'api::products-page.products-page': ApiProductsPageProductsPage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
