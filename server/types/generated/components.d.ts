@@ -7,6 +7,7 @@ export interface ProductsProductGroup extends Struct.ComponentSchema {
   };
   attributes: {
     category: Schema.Attribute.String;
+    product_description: Schema.Attribute.Text;
     products: Schema.Attribute.Component<'products.product-item', true>;
   };
 }
