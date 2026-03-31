@@ -22,6 +22,41 @@
       "type": "component",
       "component": "products.product-group",
       "repeatable": true
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "douceur": {
+      "type": "string"
+    },
+    "douceur_description": {
+      "type": "text"
+    },
+    "epaisseur": {
+      "type": "string"
+    },
+    "epaisseur_description": {
+      "type": "text"
+    },
+    "certification": {
+      "type": "string"
+    },
+    "Certifications": {
+      "type": "component",
+      "component": "certifications.certifications",
+      "repeatable": true
+    },
+    "Partenaires": {
+      "type": "component",
+      "component": "partenaires.partenaires",
+      "repeatable": true
     }
   }
 }

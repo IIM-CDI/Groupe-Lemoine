@@ -1,5 +1,30 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface CertificationsCertifications extends Struct.ComponentSchema {
+  collectionName: 'components_certifications_certifications';
+  info: {
+    displayName: 'Certifications';
+  };
+  attributes: {
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    name: Schema.Attribute.String;
+  };
+}
+
+export interface PartenairesPartenaires extends Struct.ComponentSchema {
+  collectionName: 'components_partenaires_partenaires';
+  info: {
+    displayName: 'Partenaires';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    name: Schema.Attribute.String;
+  };
+}
+
 export interface ProductsProductGroup extends Struct.ComponentSchema {
   collectionName: 'components_products_product_groups';
   info: {
@@ -30,6 +55,8 @@ export interface ProductsProductItem extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'certifications.certifications': CertificationsCertifications;
+      'partenaires.partenaires': PartenairesPartenaires;
       'products.product-group': ProductsProductGroup;
       'products.product-item': ProductsProductItem;
     }
