@@ -8,6 +8,9 @@
     "category": {
       "type": "string"
     },
+    "product_description": {
+      "type": "text"
+    },
     "products": {
       "type": "component",
       "component": "products.product-item",

@@ -842,6 +842,7 @@ export interface ApiProductsPageProductsPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    Category: Schema.Attribute.Component<'products.product-group', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -852,7 +853,6 @@ export interface ApiProductsPageProductsPage extends Struct.SingleTypeSchema {
       'api::products-page.products-page'
     > &
       Schema.Attribute.Private;
-    Product: Schema.Attribute.Component<'products.product-group', true>;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
