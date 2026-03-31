@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_certifications_certifications",
+  "info": {
+    "displayName": "Certifications"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

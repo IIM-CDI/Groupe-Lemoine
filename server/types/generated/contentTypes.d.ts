@@ -843,16 +843,27 @@ export interface ApiProductsPageProductsPage extends Struct.SingleTypeSchema {
   };
   attributes: {
     Category: Schema.Attribute.Component<'products.product-group', true>;
+    certification: Schema.Attribute.String;
+    Certifications: Schema.Attribute.Component<
+      'certifications.certifications',
+      true
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
+    douceur: Schema.Attribute.String;
+    douceur_description: Schema.Attribute.Text;
+    epaisseur: Schema.Attribute.String;
+    epaisseur_description: Schema.Attribute.Text;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::products-page.products-page'
     > &
       Schema.Attribute.Private;
+    Partenaires: Schema.Attribute.Component<'partenaires.partenaires', true>;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
