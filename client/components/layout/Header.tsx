@@ -32,7 +32,7 @@ export default function Header() {
             <Link href="#" className="text-white text-sm hover:text-gray-100">Customer&apos;s partner</Link>
             <Link href="#" className="text-white text-sm hover:text-gray-100">Dispositifs Sanitaires</Link>
             <Link href="#" className="text-white text-sm hover:text-gray-100">Peaudouce</Link>
-            <Link href="#" className="text-white text-sm hover:text-gray-100">Carrières</Link>
+            <Link href="/job-offers" className="text-white text-sm hover:text-gray-100">Carrières</Link>
             <Link href="#" className="text-white text-sm hover:text-gray-100">Contact</Link>
           </nav>
 

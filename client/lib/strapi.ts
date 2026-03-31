@@ -1,4 +1,3 @@
-
 const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
 const strapiServerUrl = process.env.STRAPI_URL;
 
