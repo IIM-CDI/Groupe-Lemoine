@@ -18,7 +18,7 @@
     "description": {
       "type": "text"
     },
-    "Product": {
+    "Category": {
       "type": "component",
       "component": "products.product-group",
       "repeatable": true
