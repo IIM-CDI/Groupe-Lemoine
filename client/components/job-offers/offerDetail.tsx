@@ -18,7 +18,7 @@ export default function OfferDetail({ job }: OfferDetailProps) {
             <span className="text-md bg-neutral-200 w-max text-neutral-600 text-xs px-3 py-1 rounded-md">{job.experience}</span>
         </div>
         <button onClick={() => {
-          router.push(`/test?jobTitle=${encodeURIComponent(job.title)}`);
+          router.push(`/form-candidate?jobTitle=${encodeURIComponent(job.title)}`);
           }} className='cursor-pointer border border-neutral-500 px-4 py-1 rounded-sm hover:bg-neutral-200'>Postuler &#8599;</button>
       </div>
         <p><strong>Lieu :</strong> {job.location}</p>
