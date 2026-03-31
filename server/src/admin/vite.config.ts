@@ -8,7 +8,7 @@ export default (config: UserConfig) => {
       },
     },
     server: {
-      allowedHosts: ["unmeaningly-unleveled-rashida.ngrok-free.dev"],
+      allowedHosts: ["crustless-katherin-unindurative.ngrok-free.dev"],
     },
   });
 };

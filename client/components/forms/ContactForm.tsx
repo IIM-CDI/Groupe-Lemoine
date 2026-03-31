@@ -10,9 +10,11 @@ export default function ContactForm() {
   const [form, setForm] = useState({ name: '', email: '', sujet: '', message: '' });
   const [status, setStatus] = useState<Status>('idle');
 
-  useEffect(() => {
-    fetchStrapi('/api/contact-form').then(setContent);
-  }, []);
+useEffect(() => {
+  fetchStrapi('/api/contact-form').then((res) => {
+    setContent(res.data)  
+  });
+}, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -40,6 +42,7 @@ export default function ContactForm() {
   };
 
   if (!content) return <p>Loading...</p>;
+
 
   return (
     <div className="max-w-lg mx-auto p-6 shadow-md rounded-3xl">

@@ -43,9 +43,7 @@ export default function CandidateForm() {
 
   const [phoneValue, setPhoneValue] = useState<string | undefined>('');
 
-  // Simule fetch Strapi / contenu dynamique
   useEffect(() => {
-    // Exemple statique si pas de Strapi
     setContent({
       title: 'Formulaire de candidature',
       description: 'Merci de remplir ce formulaire',
