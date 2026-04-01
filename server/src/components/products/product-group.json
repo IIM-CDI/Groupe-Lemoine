@@ -15,6 +15,11 @@
       "type": "component",
       "component": "products.product-item",
       "repeatable": true
+    },
+    "Details": {
+      "type": "component",
+      "component": "products.description",
+      "repeatable": true
     }
   },
   "config": {}

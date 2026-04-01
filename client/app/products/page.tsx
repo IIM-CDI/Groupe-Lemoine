@@ -1,7 +1,15 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { fetchStrapi } from '@/lib/strapi';
 import Image from 'next/image';
+import { fetchStrapi } from '@/lib/strapi';
+
+const STRAPI = process.env.NEXT_PUBLIC_STRAPI_URL;
+
+export type Detail = {
+  id: number;
+  title: string;
+  description: string;
+};
 
 export type Product = {
   id: number;
@@ -10,20 +18,33 @@ export type Product = {
   image: { url: string }[];
 };
 
+export type Category = {
+  id: number;
+  category: string;
+  product_description: string;
+  Details: Detail[];
+  products: Product[];
+};
+
+export type Certification = {
+  id: number;
+  name: string;
+  Image: { url: string };
+};
+
+export type Partenaire = {
+  id: number;
+  name: string;
+  image: { url: string }[];
+};
+
 export type ExpertiseData = {
   title: string;
   description: string;
-  douceur: string;
-  douceur_description: string;
-  epaisseur: string;
-  epaisseur_description: string;
   certification: string;
-  Category: {
-    id: number;
-    category: string;
-    product_description: string;
-    products: Product[];
-  }[];
+  Category: Category[];
+  Certifications: Certification[];
+  Partenaires: Partenaire[];
 };
 
 export default function ExpertisePage() {
@@ -33,7 +54,7 @@ export default function ExpertisePage() {
 
   useEffect(() => {
     fetchStrapi(
-      '/api/products-page?populate[Category][populate][products][populate]=image'
+      '/api/products-page?populate[Category][populate][products][populate]=image&populate[Category][populate][Details]=*&populate[Certifications][populate]=Image&populate[Partenaires][populate]=image',
     ).then((res) => setData(res.data));
   }, []);
 
@@ -41,7 +62,10 @@ export default function ExpertisePage() {
 
   const currentCategory = data.Category[activeCategoryIdx];
   const products = currentCategory.products;
-  const activeProduct = products[selectedProductIdx];
+  const details = currentCategory.Details;
+
+  const leftDetails = details.slice(0, 4);
+  const rightDetails = details.slice(4);
 
   const handleCategoryChange = (idx: number) => {
     setActiveCategoryIdx(idx);
@@ -50,10 +74,8 @@ export default function ExpertisePage() {
 
   return (
     <section className="bg-[#f0f0f0] py-16 px-4 md:px-20 font-sans text-gray-800">
-
       <div className="text-center mb-8">
-        <h1 className="text-4xl mb-6">{data.title}</h1>
-
+        <h1 className="text-4xl mb-6 font-bold">{data.title}</h1>
         <div className="flex justify-center gap-3 mb-6">
           {data.Category.map((cat, idx) => (
             <button
@@ -67,8 +89,10 @@ export default function ExpertisePage() {
             />
           ))}
         </div>
-
-        <p className="max-w-2xl mx-auto text-sm text-gray-600">
+        <h2 className="text-2xl font-bold text-center text-(--secondary)">
+          {currentCategory.category}
+        </h2>
+        <p className="max-w-2xl mx-auto text-sm text-center text-gray-600">
           {currentCategory.product_description}
         </p>
       </div>
@@ -80,12 +104,12 @@ export default function ExpertisePage() {
             onClick={() => setSelectedProductIdx(idx)}
             className="cursor-pointer group"
           >
-            <div className="aspect-square relative flex items-center justify-center">
+            <div className="aspect-square relative flex items-center justify-center bg-(--primary-bg) rounded-t">
               {product.image?.[0]?.url ? (
                 <img
-                  src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${product.image[0].url}`}
+                  src={`${STRAPI}${product.image[0].url}`}
                   alt={product.product_name}
-                  className={`object-contain transition-transform duration-300 ${
+                  className={`object-contain w-full h-full transition-transform duration-300  ${
                     selectedProductIdx === idx
                       ? 'scale-110'
                       : 'group-hover:scale-105'
@@ -96,9 +120,9 @@ export default function ExpertisePage() {
               )}
             </div>
             <div
-              className={`text-center py-2 px-1 text-xs font-bold uppercase rounded shadow-sm transition-colors ${
+              className={`text-center py-2 px-1 text-xs font-bold uppercase rounded-b shadow-sm transition-colors ${
                 selectedProductIdx === idx
-                  ? 'bg-gray-500 text-white'
+                  ? 'bg-(--secondary) text-white'
                   : 'bg-gray-300 text-gray-600'
               }`}
             >
@@ -108,44 +132,80 @@ export default function ExpertisePage() {
         ))}
       </div>
 
-      <div className="grid md:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
-
-        <div className="space-y-6">
-          <div>
-            <h3 className="font-bold text-lg mb-2">
-              {activeProduct.product_name}
-            </h3>
-            <p className="text-sm leading-relaxed text-gray-600">
-              {activeProduct.product_description}
-            </p>
-          </div>
+      <div className="grid md:grid-cols-2 gap-12 items-start max-w-6xl mx-auto mb-16">
+        <div className="space-y-6 ">
+          {leftDetails.map((detail) => (
+            <div key={detail.id} className="text-left">
+              <h3 className="font-bold text-lg mb-1 text-(--primary)">
+                {detail.title}
+              </h3>
+              <p className="text-base leading-relaxed text-gray-600">
+                {detail.description}
+              </p>
+            </div>
+          ))}
         </div>
 
         <div className="space-y-4">
+          <Image
+          className='w-full rounded'
+            src="/images/cotton.png"
+            alt="cotton"
+            width={500}
+            height={500}
+          />
           <div className="grid grid-cols-2 gap-4">
-            <div className="bg-gray-200 p-4 rounded text-center">
-              <span className="block font-bold text-sm uppercase mb-1">
-                {data.douceur}
-              </span>
-              <p className="text-xs text-gray-500">{data.douceur_description}</p>
-            </div>
-            <div className="bg-gray-200 p-4 rounded text-center">
-              <span className="block font-bold text-sm uppercase mb-1">
-                {data.epaisseur}
-              </span>
-              <p className="text-xs text-gray-500">{data.epaisseur_description}</p>
-            </div>
+            {rightDetails.map((detail) => (
+              <div
+                key={detail.id}
+                className="bg-(--primary) p-4 rounded text-center text-white"
+              >
+                <p className="text-xs font-bold uppercase mb-1">
+                  {detail.title}
+                </p>
+                <p className="text-sm text-white">{detail.description}</p>
+              </div>
+            ))}
           </div>
 
-          <div className="bg-gray-200 p-4 rounded flex items-center justify-between">
-            <span className="text-sm font-bold uppercase">
+          <div className=" p-4 rounded border border-(--primary)">
+            <p className="text-sm font-bold uppercase text-center mb-3 text-(--secondary) ">
               {data.certification}
-            </span>
-            <div className="flex gap-2">
-              <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-[8px] font-bold">FSC</div>
-              <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-[8px] font-bold">GOTS</div>
-              <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-[8px] font-bold">BIO</div>
+            </p>
+            <div className="flex justify-center gap-4">
+              {data.Certifications.map((cert) => (
+                <div key={cert.id} className="w-12 h-12 relative">
+                  {cert.Image?.url && (
+                    <img
+                      src={`${STRAPI}${cert.Image.url}`}
+                      alt={cert.name}
+                      className="w-full h-full object-contain"
+                    />
+                  )}
+                </div>
+              ))}
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="border-t border-gray-300 pt-10">
+        <h2 className="text-2xl text-center mb-8 text-(--secondary) font-semibold">
+          Nos entreprises partenaires
+        </h2>
+        <div className="overflow-hidden relative">
+          <div className="flex gap-12 animate-carousel whitespace-nowrap">
+            {[...data.Partenaires, ...data.Partenaires].map((partner, idx) => (
+              <div key={idx} className="inline-flex items-center shrink-0">
+                {partner.image?.[0]?.url && (
+                  <img
+                    src={`${STRAPI}${partner.image[0].url}`}
+                    alt={partner.name}
+                    className="h-12 w-auto object-contain"
+                  />
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </div>
