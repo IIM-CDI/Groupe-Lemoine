@@ -1,51 +1,12 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import type { ExpertiseData, Category, Product, Detail, Certification, Partenaire } from '@/types/products';
 import { fetchStrapi } from '@/lib/strapi';
 
 const STRAPI = process.env.NEXT_PUBLIC_STRAPI_URL;
 
-export type Detail = {
-  id: number;
-  title: string;
-  description: string;
-};
 
-export type Product = {
-  id: number;
-  product_name: string;
-  product_description: string;
-  image: { url: string }[];
-};
-
-export type Category = {
-  id: number;
-  category: string;
-  product_description: string;
-  Details: Detail[];
-  products: Product[];
-};
-
-export type Certification = {
-  id: number;
-  name: string;
-  Image: { url: string };
-};
-
-export type Partenaire = {
-  id: number;
-  name: string;
-  image: { url: string }[];
-};
-
-export type ExpertiseData = {
-  title: string;
-  description: string;
-  certification: string;
-  Category: Category[];
-  Certifications: Certification[];
-  Partenaires: Partenaire[];
-};
 
 export default function ExpertisePage() {
   const [data, setData] = useState<ExpertiseData | null>(null);
