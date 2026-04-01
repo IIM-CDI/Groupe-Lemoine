@@ -25,6 +25,17 @@ export interface PartenairesPartenaires extends Struct.ComponentSchema {
   };
 }
 
+export interface ProductsDescription extends Struct.ComponentSchema {
+  collectionName: 'components_products_descriptions';
+  info: {
+    displayName: 'Description';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface ProductsProductGroup extends Struct.ComponentSchema {
   collectionName: 'components_products_product_groups';
   info: {
@@ -32,6 +43,7 @@ export interface ProductsProductGroup extends Struct.ComponentSchema {
   };
   attributes: {
     category: Schema.Attribute.String;
+    Details: Schema.Attribute.Component<'products.description', true>;
     product_description: Schema.Attribute.Text;
     products: Schema.Attribute.Component<'products.product-item', true>;
   };
@@ -57,6 +69,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'certifications.certifications': CertificationsCertifications;
       'partenaires.partenaires': PartenairesPartenaires;
+      'products.description': ProductsDescription;
       'products.product-group': ProductsProductGroup;
       'products.product-item': ProductsProductItem;
     }
