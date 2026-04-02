@@ -1,17 +1,20 @@
 'use client';
 import Link from 'next/link';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 const menuItems = [
   { label: 'Home', href: '/', img: '/images/header-home.png' },
   { label: 'Notre expertise', href: '#', img: '/images/header-notreexpertise.png' },
   { label: 'Sites de production', href: '#', img: '/images/header-sites.png' },
   { label: 'Carrière', href: '/job-offers', img: '/images/header-carrière.png' },
-  { label: 'RSE', href: '#', img: '/images/header-rse.png' },
+  { label: 'RSE', href: '/rse', img: '/images/header-rse.png' },
 ];
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const currentLabel = menuItems.find((item) => item.href === pathname)?.label ?? 'Home';
 
   return (
     <div
@@ -50,7 +53,7 @@ export default function Header() {
               alt="Lemoine"
               style={{ width: '68px', height: '68px', objectFit: 'contain' }}
             />
-            <h1 style={{ fontSize: '32px', fontFamily: 'Playfair Display, serif', fontWeight: 400, color: '#1f2937' }}>Home</h1>
+            <h1 style={{ fontSize: '32px', fontFamily: 'Playfair Display, serif', fontWeight: 400, color: '#1f2937' }}>{currentLabel}</h1>
           </Link>
 
           {/* Icônes droite */}

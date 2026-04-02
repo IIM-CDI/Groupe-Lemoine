@@ -5,7 +5,7 @@ export default function Footer() {
     <footer style={{ backgroundColor: '#EEF2F1' }} className="font-display">
 
       {/* Contenu principal */}
-      <div className="py-10 flex flex-col md:flex-row items-center md:items-start gap-8 px-6 md:px-20">
+      <div className="py-10 flex flex-col md:flex-row items-center md:items-start gap-12 px-6 md:px-0 md:justify-center">
 
         {/* Rectangle gris "Rejoignez nous" avec fleur */}
         <div className="relative shrink-0 w-full md:w-[630px]" style={{ height: '160px' }}>
@@ -34,7 +34,7 @@ export default function Footer() {
         </div>
 
         {/* Liens */}
-        <ul className="space-y-2 md:ml-auto">
+        <ul className="space-y-2">
           {['Nos produits', 'Peaudouce', 'Nous rejoindre', 'Nos marques partenaire', 'RSE'].map((item) => (
             <li key={item} className="flex items-center gap-2" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 400, fontSize: '16px', color: '#1f2937', listStyle: 'none' }}>
               <span>·</span>
