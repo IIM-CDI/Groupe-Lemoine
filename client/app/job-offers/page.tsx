@@ -31,7 +31,7 @@ export default function Offers() {
   });
 
   return (
-    <div className="flex flex-col p-12 gap-12 min-h-screen bg-cover bg-[url('/images/offers-bg.png')] items-center justify-center">
+    <div className="flex flex-col p-12 gap-12 min-h-screen py-40 bg-cover bg-[url('/images/offers-bg.png')] items-center justify-center">
      <h1 className="text-6xl text-black">
         A la recherche de votre <br />
         <span className="italic block text-right translate-x-30">
