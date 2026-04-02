@@ -17,9 +17,10 @@ export default function ProductionSites() {
     console.log(sites)
 
   return (
-    <div className="flex flex-col p-12 gap-12 min-h-screen bg-cover bg-[url('/images/offers-bg.png')] items-center justify-center">
-      <h1 className="text-4xl">Sites de production</h1>
-        {sites.map((site) => (
+    <div className="flex flex-col p-12 gap-12 min-h-screen pt-60">
+      <h1 className="text-4xl text-center">Sites de production</h1>
+      <div className="flex flex-wrap justify-center">
+      {sites.map((site) => (
             <ProductionSiteCard 
               key={site.id}
               id={site.id}
@@ -30,6 +31,8 @@ export default function ProductionSites() {
               
             />
           ))}
+      </div>
+
     </div>
   );
 }
