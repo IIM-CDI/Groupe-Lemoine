@@ -430,6 +430,8 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+<<<<<<< HEAD
+=======
 export interface ApiCandidateFormCandidateForm extends Struct.SingleTypeSchema {
   collectionName: 'candidate_forms';
   info: {
@@ -904,6 +906,7 @@ export interface ApiProductsPageProductsPage extends Struct.SingleTypeSchema {
   };
 }
 
+>>>>>>> 70b95ba37c47e4055d2cc0bafa29a687acce4496
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1415,6 +1418,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+<<<<<<< HEAD
+=======
       'api::candidate-form.candidate-form': ApiCandidateFormCandidateForm;
       'api::contact-form.contact-form': ApiContactFormContactForm;
       'api::faq.faq': ApiFaqFaq;
@@ -1422,6 +1427,7 @@ declare module '@strapi/strapi' {
       'api::job-offer.job-offer': ApiJobOfferJobOffer;
       'api::production-site.production-site': ApiProductionSiteProductionSite;
       'api::products-page.products-page': ApiProductsPageProductsPage;
+>>>>>>> 70b95ba37c47e4055d2cc0bafa29a687acce4496
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

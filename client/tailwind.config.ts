@@ -3,6 +3,7 @@ import type { Config } from 'tailwindcss'
 export default {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
@@ -31,6 +32,8 @@ export default {
       fontFamily: {
         primary: ['Open Sans', 'sans-serif'],
         display: ['Montserrat', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
+        playfair: ['Playfair Display', 'serif'],
       },
 
       fontSize: {
@@ -38,6 +41,33 @@ export default {
         h2: ['1.875rem', { lineHeight: '2.25rem', fontWeight: '700' }],
         h3: ['1.5rem', { lineHeight: '2rem', fontWeight: '700' }],
         h4: ['1.25rem', { lineHeight: '1.75rem', fontWeight: '700' }],
+        '32px': ['32px', { lineHeight: '1.2' }],
+      },
+      maxWidth: {
+        header: '620px',
+      },
+      width: {
+        'logo': '68px',
+        'nav-img': '89px',
+      },
+      height: {
+        'logo': '68px',
+        'header': '7rem',
+        'nav-img': '58px',
+      },
+      borderRadius: {
+        'header': '6px',
+      },
+      boxShadow: {
+        'header': '0 4px 16px rgba(0,0,0,0.12)',
+        'nav': '0 8px 16px rgba(0,0,0,0.12)',
+      },
+      borderColor: {
+        'header': 'rgba(0,0,0,0.2)',
+      },
+      inset: {
+        'header-top': '24px',
+        'nav-top': 'calc(100% + 28px)',
       },
 
       /* Animations */
