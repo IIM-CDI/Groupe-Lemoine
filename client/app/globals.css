@@ -6,6 +6,7 @@
   --foreground: #171717;
   --primary: #00579E;
   --secondary:#96031A;
+  --primary-bg: rgb(144, 194, 235);
 
 
 }
@@ -29,4 +30,17 @@ body {
   .input-field{
    @apply w-full border-2 border-[var(--primary)] rounded-3xl p-3 focus:outline-none focus:ring-1 focus:ring-[var(--secondary)] focus:border-[var(--secondary)]
   }
+
+  .products-button{
+      @apply bg-gray-300 p-4 rounded-full h-16 w-16 cursor-pointer
+  }
+}
+
+@keyframes carousel {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-carousel {
+  animation: carousel 20s linear infinite;
 }

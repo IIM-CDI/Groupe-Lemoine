@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_products_product_groups",
+  "info": {
+    "displayName": "Product Group"
+  },
+  "options": {},
+  "attributes": {
+    "category": {
+      "type": "string"
+    },
+    "product_description": {
+      "type": "text"
+    },
+    "products": {
+      "type": "component",
+      "component": "products.product-item",
+      "repeatable": true
+    },
+    "Details": {
+      "type": "component",
+      "component": "products.description",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
