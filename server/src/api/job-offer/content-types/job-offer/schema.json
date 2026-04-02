@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "job_offers",
+  "info": {
+    "singularName": "job-offer",
+    "pluralName": "job-offers",
+    "displayName": "job-offer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "location": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "CDI",
+        "CDD",
+        "Stage",
+        "Alternance",
+        "Freelance",
+        "Autre"
+      ]
+    },
+    "experience": {
+      "type": "enumeration",
+      "enum": [
+        "De 0 à 2 ans",
+        "De 3 à 5 ans",
+        "De 6 à 10 ans",
+        "Plus de 10 ans"
+      ]
+    }
+  }
+}

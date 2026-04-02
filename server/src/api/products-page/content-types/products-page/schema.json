@@ -1,0 +1,62 @@
+{
+  "kind": "singleType",
+  "collectionName": "products_pages",
+  "info": {
+    "singularName": "products-page",
+    "pluralName": "products-pages",
+    "displayName": "products-page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "Category": {
+      "type": "component",
+      "component": "products.product-group",
+      "repeatable": true
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "douceur": {
+      "type": "string"
+    },
+    "douceur_description": {
+      "type": "text"
+    },
+    "epaisseur": {
+      "type": "string"
+    },
+    "epaisseur_description": {
+      "type": "text"
+    },
+    "certification": {
+      "type": "string"
+    },
+    "Certifications": {
+      "type": "component",
+      "component": "certifications.certifications",
+      "repeatable": true
+    },
+    "Partenaires": {
+      "type": "component",
+      "component": "partenaires.partenaires",
+      "repeatable": true
+    }
+  }
+}
