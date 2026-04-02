@@ -11,13 +11,13 @@
 
 }
 
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 10px;
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
-::-webkit-scrollbar-track {
-  background: #f9fafb;
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 body {
