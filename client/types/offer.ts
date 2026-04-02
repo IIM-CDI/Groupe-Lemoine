@@ -5,5 +5,6 @@ export type Job = {
     location: string;
     type: string;
     experience: string;
+    travail: string;
     createdAt: string;
 };
