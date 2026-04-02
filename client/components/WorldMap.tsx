@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
@@ -38,6 +38,12 @@ const filters: { label: string; value: Region }[] = [
 
 export default function WorldMap() {
   const [activeRegion, setActiveRegion] = useState<Region>('tous');
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsMounted(true), 0);
+    return () => clearTimeout(timer);
+  }, []);
 
   const visibleSites = activeRegion === 'tous'
     ? sites
@@ -61,7 +67,7 @@ export default function WorldMap() {
                 ? { backgroundColor: '#00579E', color: 'white', border: '1px solid #00579E' }
                 : { backgroundColor: 'white', color: '#00579E', border: '1px solid #d1d5db' }
             }
-            className="px-5 py-2 rounded-full text-sm font-medium transition hover:opacity-90"
+            className="px-5 py-2 rounded-full text-sm font-medium transition hover:opacity-90 cursor-pointer"
           >
             {f.label}
           </button>
@@ -69,36 +75,38 @@ export default function WorldMap() {
       </div>
 
       {/* Carte */}
-      <div className="w-full max-w-4xl mx-auto rounded-lg overflow-hidden" style={{ backgroundColor: '#BEE3F8' }}>
-        <ComposableMap
-          projectionConfig={{ scale: 147 }}
-          style={{ width: '100%', height: 'auto' }}
-        >
-          <Geographies geography={GEO_URL}>
-            {({ geographies }) =>
-              geographies.map((geo) => (
-                <Geography
-                  key={geo.rsmKey}
-                  geography={geo}
-                  fill="white"
-                  stroke="#999"
-                  strokeWidth={0.4}
-                />
-              ))
-            }
-          </Geographies>
+      <div className="w-full max-w-4xl mx-auto rounded-lg overflow-hidden" style={{ backgroundColor: '#BEE3F8', minHeight: '300px' }}>
+        {isMounted && (
+          <ComposableMap
+            projectionConfig={{ scale: 147 }}
+            style={{ width: '100%', height: 'auto' }}
+          >
+            <Geographies geography={GEO_URL}>
+              {({ geographies }) =>
+                geographies.map((geo) => (
+                  <Geography
+                    key={geo.rsmKey}
+                    geography={geo}
+                    fill="white"
+                    stroke="#999"
+                    strokeWidth={0.4}
+                  />
+                ))
+              }
+            </Geographies>
 
-          {visibleSites.map((site) => (
-            <Marker key={site.name} coordinates={site.coordinates}>
-              <circle
-                r={5}
-                fill={regionColors[site.region]}
-                stroke="white"
-                strokeWidth={1.5}
-              />
-            </Marker>
-          ))}
-        </ComposableMap>
+            {visibleSites.map((site) => (
+              <Marker key={site.name} coordinates={site.coordinates}>
+                <circle
+                  r={5}
+                  fill={regionColors[site.region]}
+                  stroke="white"
+                  strokeWidth={1.5}
+                />
+              </Marker>
+            ))}
+          </ComposableMap>
+        )}
       </div>
 
       {/* Légende */}
