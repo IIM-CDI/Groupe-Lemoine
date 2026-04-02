@@ -32,7 +32,6 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
-        <main className="pt-28">{children}</main>
       </body>
     </html>
   );

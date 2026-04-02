@@ -4,8 +4,8 @@ import { useState } from 'react';
 
 const menuItems = [
   { label: 'Home', href: '/', img: '/images/header-home.png' },
-  { label: 'Notre expertise', href: '#', img: '/images/header-notreexpertise.png' },
-  { label: 'Sites de production', href: '#', img: '/images/header-sites.png' },
+  { label: 'Notre expertise', href: '/products', img: '/images/header-notreexpertise.png' },
+  { label: 'Sites de production', href: '/production-sites', img: '/images/header-sites.png' },
   { label: 'Carrière', href: '/job-offers', img: '/images/header-carrière.png' },
   { label: 'RSE', href: '#', img: '/images/header-rse.png' },
 ];
@@ -53,10 +53,9 @@ export default function Header() {
             <h1 style={{ fontSize: '32px', fontFamily: 'Playfair Display, serif', fontWeight: 400, color: '#1f2937' }}>Home</h1>
           </Link>
 
-<<<<<<< HEAD
           {/* Icônes droite */}
           <div className="flex items-center gap-3">
-            <button onClick={() => setIsOpen(!isOpen)} className="p-2 text-gray-700">
+            <button onClick={() => setIsOpen(!isOpen)} className="p-2 text-gray-700 cursor-pointer">
               {isOpen ? (
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -67,22 +66,7 @@ export default function Header() {
                 </svg>
               )}
             </button>
-=======
-          {/* Nav Center - Desktop */}
-          <nav className="hidden md:flex items-center bg-linear-to-r from-blue-600 to-blue-500 rounded-full px-8 py-3 gap-6">
-            <Link 
-              href="#" 
-              className="bg-red-600 text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-red-700 transition"
-            >
-              Groupe Lemoine
-            </Link>
-            <Link href="#" className="text-white text-sm hover:text-gray-100">Customer&apos;s partner</Link>
-            <Link href="#" className="text-white text-sm hover:text-gray-100">Dispositifs Sanitaires</Link>
-            <Link href="#" className="text-white text-sm hover:text-gray-100">Peaudouce</Link>
-            <Link href="/job-offers" className="text-white text-sm hover:text-gray-100">Carrières</Link>
-            <Link href="#" className="text-white text-sm hover:text-gray-100">Contact</Link>
-          </nav>
->>>>>>> 70b95ba37c47e4055d2cc0bafa29a687acce4496
+
 
             {/* Menu déroulant */}
             {isOpen && (
