@@ -1,15 +1,15 @@
 import { ProductionSite } from "@/types/ProductionSite"
+import { strapiMediaSrc } from "@/lib/strapiMedia"
 // import Image from 'next/image';
 type Production = ProductionSite
-const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL?.replace(/\/$/, '');
 
 export default function ProductionSites({image, title, subtitle, description}: ( Production )) {
     return (
         <div className="flex flex-col h-full gap-4 text-black max-w-sm p-6 justify-center ">
-          {image && (
+          {image?.url && (
             <img
               className="aspect-[12/6]"
-              src={`${strapiUrl}${image.url}`}
+              src={strapiMediaSrc(image.url)}
               alt={title}
             />
           )}
