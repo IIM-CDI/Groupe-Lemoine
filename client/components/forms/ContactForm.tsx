@@ -1,6 +1,5 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { fetchStrapi } from '@/lib/strapi';
 import { ContactFormContent } from '@/types/contact';
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
@@ -10,11 +9,15 @@ export default function ContactForm() {
   const [form, setForm] = useState({ name: '', email: '', sujet: '', message: '' });
   const [status, setStatus] = useState<Status>('idle');
 
-useEffect(() => {
-  fetchStrapi('/api/contact-form').then((res) => {
-    setContent(res.data)  
-  });
-}, []);
+  useEffect(() => {
+    fetch('/api/contact-form')
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then((json) => setContent(json.data))
+      .catch((err) => console.error('Fetch /api/contact-form failed:', err));
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
