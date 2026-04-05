@@ -8,21 +8,56 @@ export default function Home() {
     <>
       <main>
         {/* ============ HERO ============ */}
-        <section id="home" className="relative w-full h-screen overflow-hidden">
-          <div className="absolute top-0 left-0 right-0 z-50" />
-          <video
-            autoPlay muted loop
-            className="absolute inset-0 w-full h-full object-cover z-0"
-            style={{ transform: 'scale(1.35)' }}
-          >
-            <source src="/videos/hero-video.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-20">
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </div>
-        </section>
+        <section
+  id="home"
+  className="relative w-full h-screen overflow-hidden flex items-center"
+>
+  {/* Gradient Overlay discret */}
+  <div className="absolute inset-0 z-5 bg-gradient-to-b from-black/40 via-transparent to-black/40"></div>
+
+  {/* Texte sur la vidéo */}
+  <div className="relative z-10 max-w-5xl mx-auto px-6 text-left">
+    <h1 className="text-white text-3xl md:text-5xl font-semibold leading-tight mb-3">
+      Groupe Lemoine, 45 ans d’expertise dans les produits d’hygiène en coton
+    </h1>
+    <p className="text-white text-base md:text-lg mb-4 opacity-90">
+      Plus de 900 collaborateurs travaillent chaque jour à innover durablement pour le monde de l’hygiène.
+    </p>
+    <Link
+      href="/products"
+      className="inline-block px-5 py-2 bg-[#CF102D] text-white text-sm font-medium rounded-md hover:bg-[#b30f27] transition"
+    >
+      Découvrez nos offres
+    </Link>
+  </div>
+
+  {/* Vidéo en background avec luminosité réduite */}
+  <video
+    autoPlay
+    muted
+    loop
+    className="absolute inset-0 w-full h-full object-cover z-0 brightness-[0.65] scale-[1.25]"
+  >
+    <source src="/videos/hero-video.mp4" type="video/mp4" />
+  </video>
+
+  {/* Flèche vers le bas */}
+  <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-20">
+    <svg
+      className="w-6 h-6 text-white opacity-80"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M19 14l-7 7m0 0l-7-7m7 7V3"
+      />
+    </svg>
+  </div>
+</section>
 
         {/* ============ QUI SOMMES-NOUS ============ */}
         <section className="py-12 md:py-20 px-4 md:px-8" style={{ backgroundColor: '#EEF2F1' }}>

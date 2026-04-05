@@ -122,7 +122,7 @@ export default function CandidateForm() {
   if (!content) return <p>Loading...</p>;
 
   return (
-    <div className="max-w-lg mx-auto p-6 shadow-md rounded-3xl bg-red-50">
+    <div className="max-w-lg mx-auto p-6 my-40 shadow-md rounded-3xl bg-blue-50">
       {jobTitle && (
   <h1 className="text-blue-600 font-semibold mb-4 text-3xl">
     {jobTitle}

@@ -2,9 +2,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import type { ExpertiseData, Category, Product, Detail, Certification, Partenaire } from '@/types/products';
-import { fetchStrapi } from '@/lib/strapi';
-
-const STRAPI = process.env.NEXT_PUBLIC_STRAPI_URL;
+import { strapiMediaSrc } from '@/lib/strapiMedia';
 
 
 
@@ -14,9 +12,25 @@ export default function ExpertisePage() {
   const [selectedProductIdx, setSelectedProductIdx] = useState(0);
 
   useEffect(() => {
-    fetchStrapi(
-      '/api/products-page?populate[Category][populate][products][populate]=image&populate[Category][populate][Details]=*&populate[Certifications][populate]=Image&populate[Partenaires][populate]=image',
-    ).then((res) => setData(res.data));
+    const fetchData = async () => {
+      try {
+        const res = await fetch('/api/products-page');
+        if (!res.ok) {
+          const err = await res.json().catch(() => ({}));
+          throw new Error(
+            typeof err === 'object' && err && 'error' in err
+              ? String((err as { error?: string }).error)
+              : `HTTP ${res.status}`,
+          );
+        }
+        const json = await res.json();
+        setData(json.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+  
+    fetchData();
   }, []);
 
   if (!data) return <div className="p-20 text-center">Loading...</div>;
@@ -68,7 +82,7 @@ export default function ExpertisePage() {
             <div className="aspect-square relative flex items-center justify-center bg-(--primary-bg) rounded-t">
               {product.image?.[0]?.url ? (
                 <img
-                  src={`${STRAPI}${product.image[0].url}`}
+                  src={strapiMediaSrc(product.image[0].url)}
                   alt={product.product_name}
                   className={`object-contain w-full h-full transition-transform duration-300  ${
                     selectedProductIdx === idx
@@ -138,7 +152,7 @@ export default function ExpertisePage() {
                 <div key={cert.id} className="w-12 h-12 relative">
                   {cert.Image?.url && (
                     <img
-                      src={`${STRAPI}${cert.Image.url}`}
+                      src={strapiMediaSrc(cert.Image.url)}
                       alt={cert.name}
                       className="w-full h-full object-contain"
                     />
@@ -160,7 +174,7 @@ export default function ExpertisePage() {
               <div key={idx} className="inline-flex items-center shrink-0">
                 {partner.image?.[0]?.url && (
                   <img
-                    src={`${STRAPI}${partner.image[0].url}`}
+                    src={strapiMediaSrc(partner.image[0].url)}
                     alt={partner.name}
                     className="h-12 w-auto object-contain"
                   />

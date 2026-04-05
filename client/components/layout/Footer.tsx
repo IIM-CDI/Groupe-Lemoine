@@ -5,7 +5,7 @@ export default function Footer() {
     <footer style={{ backgroundColor: '#EEF2F1' }} className="font-display">
 
       {/* Contenu principal */}
-      <div className="py-10 flex flex-col md:flex-row items-center md:items-start gap-12 px-6 md:px-0 md:justify-center">
+      <div className="py-10 gap-10 flex flex-col md:flex-row items-center md:items-start px-6 md:px-12 md:justify-center">
 
         {/* Rectangle gris "Rejoignez nous" avec fleur */}
         <div className="relative shrink-0 w-full md:w-[630px]" style={{ height: '160px' }}>
@@ -13,18 +13,20 @@ export default function Footer() {
             style={{ backgroundColor: 'rgba(217, 217, 217, 1)' }}
             className="w-full h-full rounded-lg flex items-center px-8"
           >
-            <span className="italic text-gray-800" style={{ fontSize: '24px', fontFamily: 'Montserrat, sans-serif', fontWeight: 600 }}>Rejoignez nous !</span>
+            <span className="relative z-10 italic text-gray-800" style={{ fontSize: '24px', fontFamily: 'Montserrat, sans-serif', fontWeight: 600 }}>Rejoignez nous !</span>
           </div>
           <img
             src="/images/fleure-footer.png"
             alt="Fleur"
-            className="absolute hidden sm:block"
+            className="absolute  sm:block"
             style={{ right: '16px', bottom: '0px', height: '180px', width: 'auto', objectFit: 'contain' }}
           />
         </div>
 
         {/* Infos Groupe Lemoine */}
-        <div className="shrink-0">
+        <div className='flex flex-col-reverse md:flex-row gap-6 w-full'>
+
+        <div className="shrink-0 w-full flex-1">
           <h3 className="mb-3 text-gray-900" style={{ fontFamily: 'Playfair Display, serif', fontWeight: 400, fontSize: '24px' }}>Groupe Lemoine</h3>
           <p className="mb-1 text-gray-500" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 400, fontSize: '12px' }}>
             42 Rue de Bellevue, 92100 Boulogne-Billancourt
@@ -34,7 +36,7 @@ export default function Footer() {
         </div>
 
         {/* Liens */}
-        <ul className="space-y-2">
+        <ul className="space-y-2 w-full flex flex-col justify-center flex-1">
           {['Nos produits', 'Peaudouce', 'Nous rejoindre', 'Nos marques partenaire', 'RSE'].map((item) => (
             <li key={item} className="flex items-center gap-2" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 400, fontSize: '16px', color: '#1f2937', listStyle: 'none' }}>
               <span>·</span>
@@ -42,6 +44,7 @@ export default function Footer() {
             </li>
           ))}
         </ul>
+        </div>
       </div>
 
      

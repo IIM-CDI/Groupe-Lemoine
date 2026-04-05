@@ -4,11 +4,12 @@ import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 
 const menuItems = [
-  { label: 'Home', href: '/', img: '/images/header-home.png' },
+  { label: 'Accueil', href: '/', img: '/images/header-home.png' },
   { label: 'Notre expertise', href: '/products', img: '/images/header-notreexpertise.png' },
   { label: 'Sites de production', href: '/production-sites', img: '/images/header-sites.png' },
   { label: 'Carrière', href: '/job-offers', img: '/images/header-carrière.png' },
   { label: 'RSE', href: '/rse', img: '/images/header-rse.png' },
+  { label: 'Contact', href: '/Contact', img: '/images/header-home.png' },
 ];
 
 export default function Header() {

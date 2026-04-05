@@ -1,6 +1,5 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { fetchStrapi } from '@/lib/strapi';
 import ContactForm from '@/components/forms/ContactForm';
 import { useRef } from 'react';
 
@@ -12,11 +11,16 @@ export default function Contact() {
   const formRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-  fetchStrapi('/api/faqs').then((res) => {
-    console.log(res)
-    setData(Array.isArray(res) ? res : res.data ?? [])
-  });
-}, []);
+    fetch('/api/faqs')
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then((json) => {
+        setData(Array.isArray(json) ? json : json.data ?? []);
+      })
+      .catch((err) => console.error('Fetch /api/faqs failed:', err));
+  }, []);
 
   const toggle = (id: number) => {
     setOpenId(openId === id ? null : id);

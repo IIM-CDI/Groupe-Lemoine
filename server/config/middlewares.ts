@@ -26,7 +26,6 @@ const config: Core.Config.Middlewares = [
       ],
     },
   },
-  "strapi::cors",
   "strapi::poweredBy",
   "strapi::query",
   "strapi::body",
