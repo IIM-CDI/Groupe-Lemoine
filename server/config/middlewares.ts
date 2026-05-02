@@ -19,11 +19,7 @@ const config: Core.Config.Middlewares = [
     config: {
       origin: ['http://localhost:3000'],
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-      headers: [
-        'Content-Type',
-        'Authorization',
-        'ngrok-skip-browser-warning',
-      ],
+      headers: ['Content-Type', 'Authorization'],
     },
   },
   "strapi::poweredBy",

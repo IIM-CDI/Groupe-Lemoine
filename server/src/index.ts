@@ -43,7 +43,7 @@ async function ensurePublicContentFind(strapi: Core.Strapi) {
       description: roleDetails.description,
       permissions,
     });
-    strapi.log.info('users-permissions: public role can find FAQ and contact-form');
+    strapi.log.info('users-permissions: public role can find FAQ, contact-form, and job-offer');
   }
 }
 

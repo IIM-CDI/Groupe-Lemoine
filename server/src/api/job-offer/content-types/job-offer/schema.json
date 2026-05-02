@@ -39,6 +39,14 @@
         "De 6 à 10 ans",
         "Plus de 10 ans"
       ]
+    },
+    "travail": {
+      "type": "enumeration",
+      "enum": [
+        "Présentiel",
+        "Télétravail",
+        "Hybride"
+      ]
     }
   }
 }
