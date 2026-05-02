@@ -2,5 +2,8 @@ packages:
   - client
   - server
 
-ignoredBuiltDependencies:
+onlyBuiltDependencies:
+  - "@swc/core"
   - better-sqlite3
+  - esbuild
+  - sharp
