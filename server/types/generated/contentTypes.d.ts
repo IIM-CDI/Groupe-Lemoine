@@ -430,8 +430,6 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-<<<<<<< HEAD
-=======
 export interface ApiCandidateFormCandidateForm extends Struct.SingleTypeSchema {
   collectionName: 'candidate_forms';
   info: {
@@ -824,6 +822,9 @@ export interface ApiJobOfferJobOffer extends Struct.CollectionTypeSchema {
     location: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String;
+    travail: Schema.Attribute.Enumeration<
+      ['Pr\u00E9sentiel', 'T\u00E9l\u00E9travail', 'Hybride']
+    >;
     type: Schema.Attribute.Enumeration<
       ['CDI', 'CDD', 'Stage', 'Alternance', 'Freelance', 'Autre']
     >;
@@ -906,7 +907,6 @@ export interface ApiProductsPageProductsPage extends Struct.SingleTypeSchema {
   };
 }
 
->>>>>>> 70b95ba37c47e4055d2cc0bafa29a687acce4496
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1418,8 +1418,6 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-<<<<<<< HEAD
-=======
       'api::candidate-form.candidate-form': ApiCandidateFormCandidateForm;
       'api::contact-form.contact-form': ApiContactFormContactForm;
       'api::faq.faq': ApiFaqFaq;
@@ -1427,7 +1425,6 @@ declare module '@strapi/strapi' {
       'api::job-offer.job-offer': ApiJobOfferJobOffer;
       'api::production-site.production-site': ApiProductionSiteProductionSite;
       'api::products-page.products-page': ApiProductsPageProductsPage;
->>>>>>> 70b95ba37c47e4055d2cc0bafa29a687acce4496
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

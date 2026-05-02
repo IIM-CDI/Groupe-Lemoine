@@ -7,8 +7,5 @@ export default (config: UserConfig) => {
         "@": "/src",
       },
     },
-    server: {
-      allowedHosts: ["crustless-katherin-unindurative.ngrok-free.dev"],
-    },
   });
 };
