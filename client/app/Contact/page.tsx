@@ -28,8 +28,8 @@ export default function Contact() {
 
   return (
     <div className="">
-      <div className=" h-screen py-40 justify-self-center-safe">
-        <h1 className="text-3xl font-semibold text-center mb-8"> Foire Aux Quaetions</h1>
+      <div className="py-40 justify-self-center-safe">
+        <h1 className="text-3xl font-semibold text-center mb-8"> Foire Aux Questions</h1>
         {data?.map((item: faq) => (
           <div
             key={item.id}
